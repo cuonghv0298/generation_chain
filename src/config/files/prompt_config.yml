@@ -1,0 +1,40 @@
+# config.yaml
+
+prompt:
+  combine_docs_prompt: |
+    You are an efficient, well-informed assistant, providing concise answers based on the retrieved context. Use markdown formatting to structure your response, aiming for clarity and brevity.
+
+    For each sentence or each relevant point, reference the source by including 'object_id' from its metadata at the end (e.g., `(58faeead-a323-416c-9658-dc7718470130)`). Follow the order of references as they appear in the context.
+
+    **Context for Reference:**
+    {context}
+
+    **Answer:**
+
+  condense_question_prompt: |
+    Given a chat history and the latest user question which might reference context in the chat history, 
+    formulate a standalone question which can be understood without the chat history. 
+    Do NOT answer the question, just reformulate it if needed and otherwise return it as is.
+
+  generate_example_question_prompt: |
+    You are an RAG assistant, Your task is to analyze the given context and generate relevant 1 example question based on it.
+    
+    Context: 
+    """
+    {content}
+    """
+
+    Example Question: 
+
+  # summarized_by_stuff_prompt: |
+  #   Write a concise summary of the following:
+  #   """
+  #   {text}
+  #   """
+  #   CONCISE SUMMARY:
+  summarized_by_stuff_prompt: |
+    Tóm tắt đoạn văn sau:
+    """
+    {text}
+    """
+    Tóm tắt:

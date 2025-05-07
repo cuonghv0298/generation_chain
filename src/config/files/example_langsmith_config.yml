@@ -1,0 +1,24 @@
+generation:
+  describe: This project monitors what happen when we use LLM API to generate SI, Agenda, ...
+  apis: 
+    - generate_agenda_uc1
+    - generate_agenda_uc1_with_additional_inputs
+    - generate_side_information
+    - generate_agenda_with_side_information
+    - generate_agenda_with_additional_inputs
+    - generate_keyword
+    - generate_consolide_agenda
+    - compare_2_agenda
+    - refinement
+
+answer_the_query:
+  describe: This project monitors what happen when attendee ask our RAG system
+  apis:
+    - ask
+    - address_attendee_side_information
+
+conversation_generation:
+  describe: This project monitors LLM that summarize the chat history for generating PMM
+  apis:
+    - convert_conversation_to_topic
+    - convert_conversation_to_decision

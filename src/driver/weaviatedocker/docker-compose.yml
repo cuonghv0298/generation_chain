@@ -1,0 +1,35 @@
+services:
+  weaviate:
+    command:
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8080'
+    - --scheme
+    - http
+    image: cr.weaviate.io/semitechnologies/weaviate:1.27.7 # used until Nov 11: 1.23.10
+    ports:
+    - 8080:8080
+    - 50051:50051
+    volumes:
+    - weaviate_data:/var/lib/weaviate
+    restart: on-failure:0
+    environment:
+      ## general
+      # ORIGIN: https://my-weaviate-deployment.com
+      QUERY_DEFAULTS_LIMIT: 25
+      QUERY_MAXIMUM_RESULTS: 10000     
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      AUTOSCHEMA_ENABLED: true
+      ENABLE_MODULES: text2vec-openai
+      ## Authentication
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      ## Multi-node setups
+      CLUSTER_HOSTNAME: 'node1'
+      # CLUSTER_JOIN: weaviate-node-1:7100
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5' # Adjust this value as needed to limit CPU usage
+volumes:
+  weaviate_data:

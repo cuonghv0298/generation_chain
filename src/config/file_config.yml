@@ -1,0 +1,6 @@
+llm_env:
+  model_config_file: "src/config/files/model_config.yml"
+  prompting_file: "src/config/files/prompt_config.yml"
+langsmith_env:
+  enable: False
+  langsmith_config_file: "src/config/files/example_langsmith_config.yml"

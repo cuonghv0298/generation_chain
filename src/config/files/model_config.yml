@@ -1,0 +1,13 @@
+# For Answer the query tasks:
+condense_question:
+  client: OpenAI
+  model_name: gpt-4o-mini
+
+combine_docs: 
+  client: OpenAI 
+  model_name: gpt-4o-mini
+  
+# Currently, I fixed directly in code (line 23 in tasks_embedding.py and line 9 - in tasks_uc2.py)
+llm_embeding:
+  client: OpenAI 
+  model_name: text-embedding-3-small
